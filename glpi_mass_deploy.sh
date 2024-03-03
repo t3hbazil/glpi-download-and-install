@@ -6,7 +6,7 @@ www_path=/var/www
 tgbot=telegrambot
 ltgbot=telegrambot_glpi
 userdb=glpi
-passdb=REDACTED
+source pass_db
 src=/usr/src
 download() {
 
