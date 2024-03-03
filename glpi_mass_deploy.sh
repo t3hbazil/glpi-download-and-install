@@ -48,7 +48,7 @@ for v in $vers10; do
         chmod u+rw $newpath/{files,config}
         echo "Copyng TG BOT and fix XML"
         mkdir $tgbot_path
-        rsync -Avhr $source_bot_location/* $target_bot_dir/
+        rsync -Ahr $source_bot_location/* $target_bot_dir/
         sed -i 's/9.4/10.0/g' $target_bot_dir/telegrambot.xml
         echo "GLPI 10.0.$v in place"
         echo "Applying DB permissions"
@@ -59,7 +59,7 @@ for v in $vers10; do
         echo "Generatin apache2 config"
         cp $sites_available/glpi10.conf $sites_available/$webconf_name
 #        sed -i 's/glpi10/glpi10"$v"/g' $sites_available/$web_conf_name
-        sed 's@glpi10@'"glpi10$v"'@' $sites_available/$webconf_name
+        sed -n 's@glpi10@'"glpi10$v"'@' $sites_available/$webconf_name
         a2ensite glpi10$v    
 
 
