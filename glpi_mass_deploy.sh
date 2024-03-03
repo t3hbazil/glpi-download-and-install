@@ -41,7 +41,7 @@ for v in $vers10; do
     webconf_name=glpi10$v.conf
 
         echo "Extracting" 
-        tar xvzf $src/glpi-$ver.tgz -C $www_path
+        tar xzf $src/glpi-$ver.tgz -C $www_path
         mv /var/www/glpi $new_path
         echo "Applying user permissions"
         chown -R www-data:www-data $new_path
